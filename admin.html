@@ -11,6 +11,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" href="admin.css">
     <title>StriveFlix Admin!</title>
 </head>
 
@@ -18,41 +19,43 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class=" col-2 d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px">
+            <div class=" col-2 d-flex flex-column flex-shrink-0 p-3 text-white 
+            " style="width: 280px">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <svg class="bi me-2" width="40" height="32">
                         <use xlink:href="#bootstrap"></use>
                     </svg>
-                    <span class="fs-4">StriveFlix Admin</span>
-                </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="/admin.html" class="nav-link active" aria-current="page">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#home"></use>
-                            </svg>
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="add-movie.html" class="nav-link text-white">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#speedometer2"></use>
-                            </svg>
-                            Add Movies
-                        </a>
-                    </li>
-                </ul>
+                    <a href="index.html" class="text-decoration-none"><span class="fs-4 admin-title">StriveFlix
+                            Admin</span></a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="/admin.html" class="nav-link active" aria-current="page">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#home"></use>
+                                </svg>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="add-movie.html" class="nav-link text-black">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#speedometer2"></use>
+                                </svg>
+                                Add Movies
+                            </a>
+                        </li>
+                    </ul>
 
             </div>
 
 
 
-            <div class="col">
+            <div class="col py-5">
                 <h3>All Movies</h3>
                 <label for="movie-categories">Select Genre</label>
-                <select onchange="onCategoryChange(this)" class="form-select mt-1" id="movie-categories">
+                <select onchange="onCategoryChange(this)" class="form-select mt-1" id="movie-categories"
+                    style="width: 100px;">
 
                 </select>
 

@@ -45,13 +45,18 @@ const onCategoryChange = (select) => {
 
 const loadMovies = (category) => {
   currentCategory = category
-  fetch(`https://striveschool-api.herokuapp.com/api/movies/${category}`, {
-    method: "GET",
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIwYmI1NjRjZmY1ZjAwMTU5MGJkZDEiLCJpYXQiOjE2Mzg5NzI2NzMsImV4cCI6MTY0MDE4MjI3M30.Fp3LdF8GznE1ZjcIp4kZJMiuhdAs4SxH4Wr3gwUj_yg",
-    },
-  })
+  fetch(
+    `https://striveschool-api.herokuapp.com/api/movies/${encodeURIComponent(
+      category
+    )}`,
+    {
+      method: "GET",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIwYmI1NjRjZmY1ZjAwMTU5MGJkZDEiLCJpYXQiOjE2Mzg5NzI2NzMsImV4cCI6MTY0MDE4MjI3M30.Fp3LdF8GznE1ZjcIp4kZJMiuhdAs4SxH4Wr3gwUj_yg",
+      },
+    }
+  )
     .then((response) => response.json())
     .then((movies) => {
       displayMovies(movies)
@@ -95,15 +100,17 @@ const displayMovies = (movies) => {
         <td>${movie.name}</td>
         <td>${movie.category}</td>
         <td>
-        <a class="btn btn-primary" href="/movie-details.html?id=${movie._id}&category=${movie.category}">View </a>
-        </td>
-        <td>
-        <button class="btn btn-primary" onclick='deleteMovie("${movie._id}","${movie.name}")'>Delete</button>
+        <a class="btn btn-primary" href="/movie-details.html?id=${
+          movie._id
+        }&category=${encodeURIComponent(movie.category)}">View </a>
+      
+        <button class="btn btn-warning" onclick='deleteMovie("${movie._id}","${
+      movie.name
+    }")'>Delete</button>
         </td
         `
   })
 }
-
 window.onload = () => {
   loadCategories()
 }

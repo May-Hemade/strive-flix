@@ -22,20 +22,30 @@ const updateMovie = (event, form) => {
   })
     .then((response) => {
       console.log(response)
+      alert("yayy your movie is updated!")
+      setTimeout(() => {
+        window.location.assign("/admin.html")
+      }, 3000)
     })
+
     .catch((error) => {
       console.log(error)
     })
 }
 
 const loadMovie = (id, category) => {
-  fetch(`https://striveschool-api.herokuapp.com/api/movies/${category}`, {
-    method: "GET",
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIwYmI1NjRjZmY1ZjAwMTU5MGJkZDEiLCJpYXQiOjE2Mzg5NzI2NzMsImV4cCI6MTY0MDE4MjI3M30.Fp3LdF8GznE1ZjcIp4kZJMiuhdAs4SxH4Wr3gwUj_yg",
-    },
-  })
+  fetch(
+    `https://striveschool-api.herokuapp.com/api/movies/${encodeURIComponent(
+      category
+    )}`,
+    {
+      method: "GET",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIwYmI1NjRjZmY1ZjAwMTU5MGJkZDEiLCJpYXQiOjE2Mzg5NzI2NzMsImV4cCI6MTY0MDE4MjI3M30.Fp3LdF8GznE1ZjcIp4kZJMiuhdAs4SxH4Wr3gwUj_yg",
+      },
+    }
+  )
     .then((response) => response.json())
     .then((categories) => {
       let movie = categories.filter((category) => category._id === id)[0]
